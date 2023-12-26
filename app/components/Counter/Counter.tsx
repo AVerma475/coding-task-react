@@ -59,6 +59,7 @@ export const Counter = () => {
         <button
           className={styles.button}
           onClick={() => {
+            if(inputValue > 0)
             dispatch(incrementByAmount(inputValue));
             setInputValue(0);
           }}
@@ -68,8 +69,11 @@ export const Counter = () => {
         <button
           className={styles.button}
           onClick={() => {
+            if(inputValue > 0){
             // dispatch event to add incrementAmount only if count is odd
-            dispatch(incrementIfOddAsync(inputValue, setInputValue));
+            dispatch(incrementIfOddAsync(inputValue, setInputValue));}else{
+              setInputValue(0);
+            }
           }}
         >
           Add If Odd
